@@ -1,7 +1,23 @@
 <div>
   <h2>Sistema de controle de produtos</h2>
   <p>Preencha o formulário para incluir um produto:</p>
+
+
+
   <form [formGroup]="produto" (ngSubmit)="cadastrarProduto()">
+
+    @if (mensagemSucesso()) {
+
+    <div class="mensagem-sucesso">
+      {{ mensagemSucesso() }}
+    </div>
+    }
+    @else if (mensagemErro()) {
+    <div class="mensagem-erro">
+      {{ mensagemErro() }}
+    </div>
+    }
+
     <div>
       <label>Nome do produto:</label>
       <input formControlName="nome" type="text" placeholder="Digite o nome aqui" />
@@ -15,7 +31,34 @@
       <input formControlName="quantidade" type="number" placeholder="Digite a quantidade aqui" />
     </div>
     <div>
-      <input type="submit" value="Realizar cadastro" />
+      <input type="submit" value="Realizar cadastro" [disabled]="produto.invalid" />
     </div>
   </form>
+
+  <!-- Consulta dos produtos -->
+  <table>
+      <thead>
+        <tr>
+          <th>Nome do produto</th>
+          <th>Preço</th>
+          <th>Quantidade</th>
+          <th>Data de cadastro</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        @for (item of produtos(); track item) {
+          <tr>
+            <td>{{ item.nome | uppercase}}</td>
+            <td>{{ item.preco | currency : 'BRL' }}</td>
+            <td>{{ item.quantidade }}</td>
+            <td>{{ item.dataHoraCadastro | date: 'dd/MM/yyyy HH:mm' }}</td>
+            <td>
+            </td>
+        }
+
+      </tbody>
+  </table>
+
 </div>
