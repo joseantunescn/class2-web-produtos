@@ -36,6 +36,8 @@ export class App {
         this.mensagemSucesso.set(response.mensagem);
         this.mensagemErro.set('');
         this.produto.reset();
+
+        this.consultarProdutos();
       },
       error: (e: any) => {
         this.mensagemErro.set(e.error.mensagem);
