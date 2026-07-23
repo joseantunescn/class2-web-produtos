@@ -60,5 +60,16 @@ export class App {
       });
   }
 
+  excluirProduto(id: string) {
+    if(confirm('Tem certeza que deseja excluir este produto?')) {
+      this.http.delete(`http://localhost:8081/api/v1/produtos/${id}`)
+        .subscribe((response: any) => {
+            alert(response.mensagem);
+            this.consultarProdutos();
+        });
+    }
+  } 
+
+
 
 }

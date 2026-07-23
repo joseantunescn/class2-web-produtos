@@ -559,3 +559,68 @@ tbody:empty::after {
     padding-bottom: 13px;
   }
 }
+
+/* Botão de exclusão */
+.btnExclusao {
+  min-width: 92px;
+  min-height: 38px;
+
+  padding: 9px 16px;
+
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  border: 1px solid rgba(248, 113, 113, 0.45);
+  border-radius: 8px;
+
+  box-shadow:
+    0 8px 18px rgba(220, 38, 38, 0.22);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.btnExclusao:hover {
+  filter: brightness(1.15);
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 24px rgba(220, 38, 38, 0.35);
+}
+
+.btnExclusao:active {
+  filter: brightness(0.95);
+  transform: translateY(0);
+
+  box-shadow:
+    0 5px 12px rgba(220, 38, 38, 0.25);
+}
+
+.btnExclusao:focus-visible {
+  outline: none;
+
+  box-shadow:
+    0 0 0 4px rgba(239, 68, 68, 0.2),
+    0 8px 18px rgba(220, 38, 38, 0.25);
+}
+
+.btnExclusao:disabled {
+  color: #cbd5e1;
+
+  cursor: not-allowed;
+
+  background: linear-gradient(135deg, #475569, #334155);
+  border-color: #475569;
+
+  opacity: 0.6;
+  filter: grayscale(0.4);
+  transform: none;
+  box-shadow: none;
+}

@@ -37,28 +37,29 @@
 
   <!-- Consulta dos produtos -->
   <table>
-      <thead>
-        <tr>
-          <th>Nome do produto</th>
-          <th>Preço</th>
-          <th>Quantidade</th>
-          <th>Data de cadastro</th>
-          <th>Ações</th>
-        </tr>
-      </thead>
-      <tbody>
+    <thead>
+      <tr>
+        <th>Nome do produto</th>
+        <th>Preço</th>
+        <th>Quantidade</th>
+        <th>Data de cadastro</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
 
-        @for (item of produtos(); track item) {
-          <tr>
-            <td>{{ item.nome | uppercase}}</td>
-            <td>{{ item.preco | currency : 'BRL' }}</td>
-            <td>{{ item.quantidade }}</td>
-            <td>{{ item.dataHoraCadastro | date: 'dd/MM/yyyy HH:mm' }}</td>
-            <td>
-            </td>
+      @for (item of produtos(); track item) {
+      <tr>
+        <td>{{ item.nome | uppercase}}</td>
+        <td>{{ item.preco | currency : 'BRL' }}</td>
+        <td>{{ item.quantidade }}</td>
+        <td>{{ item.dataHoraCadastro | date: 'dd/MM/yyyy HH:mm' }}</td>
+        <td>
+          <button class="btnExclusao" (click)="excluirProduto(item.id)">Excluir</button>
+        </td>
         }
 
-      </tbody>
+    </tbody>
   </table>
 
 </div>
